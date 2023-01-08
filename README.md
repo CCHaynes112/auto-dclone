@@ -12,7 +12,7 @@ diablo2.io is a great resource for all diablo 2 players. Highly recommend checki
 
 ## Getting Started
 
-* git clone the app
+* git clone `https://github.com/CCHaynes112/auto-dclone.git`
 * cd into the app
 * run `pip install -r requirements.txt`
 * create a `config.py` file in the src directory
