@@ -1,0 +1,4 @@
+opencv-python==4.7.0.68
+PyAutoGUI==0.9.53
+requests==2.27.1
+twilio==7.16.0
