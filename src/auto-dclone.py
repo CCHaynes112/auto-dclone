@@ -91,46 +91,46 @@ def run_diablo_2_automation(region):
     os.startfile(LAUNCHER_PATH)
 
     # Choose the region where dclone is going to spawn
-    region_icon = wait_for_image("./assets/img/region.png")
+    region_icon = wait_for_image("../assets/img/region.png")
     pyautogui.click(region_icon)
 
     # Handle region select
     region_path = None
     if region == Region.AMERICA:
-        region_path = "./assets/img/america.png"
+        region_path = "../assets/img/america.png"
     elif region == Region.EUROPE:
-        region_path = "./assets/img/europe.png"
+        region_path = "../assets/img/europe.png"
     else:
-        region_path = "./assets/img/asia.png"
+        region_path = "../assets/img/asia.png"
     region_button = wait_for_image(region_path, confidence=0.7)
     pyautogui.click(region_button)
 
     # Start the game
-    start_button = wait_for_image("./assets/img/start.png")
+    start_button = wait_for_image("../assets/img/start.png")
     pyautogui.click(start_button)
 
     # Skip for first intro
-    wait_for_image("./assets/img/intro.png", realtime=True, confidence=0.5)
+    wait_for_image("../assets/img/intro.png", realtime=True, confidence=0.5)
     pyautogui.press("space")
 
     # Skip for second intro
-    wait_for_image("./assets/img/intro_2.png", realtime=True, confidence=0.5)
+    wait_for_image("../assets/img/intro_2.png", realtime=True, confidence=0.5)
     pyautogui.press("space")
 
     # Skip any key screen
-    wait_for_image("./assets/img/d2_any_key.png")
+    wait_for_image("../assets/img/d2_any_key.png")
     pyautogui.press("space")
 
     # Click on the character name
-    character_name = wait_for_image("./assets/img/character_name.png")
+    character_name = wait_for_image("../assets/img/character_name.png")
     pyautogui.click(character_name)
 
     # Press "Play" button
-    play_button = wait_for_image("./assets/img/play.png")
+    play_button = wait_for_image("../assets/img/play.png")
     pyautogui.click(play_button)
 
     # Press "Hell" button
-    hell_button = wait_for_image("./assets/img/hell.png")
+    hell_button = wait_for_image("../assets/img/hell.png")
     pyautogui.click(hell_button)
 
 
