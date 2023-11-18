@@ -3,7 +3,6 @@ import dotenv
 import os
 
 from poller import Poller
-from notifier import Notifier
 from game_creation_bot import GameCreationBot
 from region import Region
 
@@ -13,7 +12,6 @@ def handle_intro():
     print("Welcome to auto dclone bot!")
     print("This bot will:")
     print("1. Poll the api for dclone spawn")
-    print("2. Send you a notification when dclone spawns")
     print("3. Start diablo 2 and create a game\n")
     print("Data courtesy of diablo2.io")
     print("https://diablo2.io/dclonetracker.php\n")
@@ -27,20 +25,20 @@ def handle_intro():
     input("Press any key to start polling")
     return region, ladder, hardcore
     
-
+# Example payload:
+# {
+#     "region": "americas",
+#     "hardcore": "softcore",
+#     "ladder": "ladder",
+#     "progress": 1,
+#     "time": "2023-02-05 23:43:22"
+# },
 def main():
     region, ladder, hardcore = handle_intro()
 
     game_creation_bot = GameCreationBot(os.getenv("D2_LAUNCHER_PATH"))
     poller = Poller(region, ladder, hardcore)
-    notifier = Notifier(
-        os.getenv("TWILIO_ACCOUNT_SID"),
-        os.getenv("TWILIO_AUTH_TOKEN"),
-        os.getenv("TWILIO_PHONE_NUMBER"),
-        os.getenv("PHONE_NUMBER"),
 
-    )
-    
     while True:
         data = poller.poll_api()
         for realm in data:
@@ -60,9 +58,6 @@ def main():
                 continue
 
             print("Dclone is spawning! Go get him!")
-            if os.getenv("SEND_SMS") == "true":
-                print("Sending sms notification...")
-                notifier.send_sms()
             print("Running diablo 2 automation...")
             game_creation_bot.run_diablo_2_automation(region)
             print("Bot initialized and waiting")

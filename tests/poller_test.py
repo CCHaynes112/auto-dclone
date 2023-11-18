@@ -31,11 +31,4 @@ def test_poll_api(mock_requests):
     assert data[0]["hc"] == "1"
     assert data[0]["progress"] == "5"
 
-    mock_requests.get.assert_called_once_with(
-        "https://diablo2.io/dclone_api.php",
-        params={
-            "region": "1",
-            "ladder": "1",
-            "hc": "1",
-        },
-    )
+    mock_requests.get.assert_called_once_with('https://dcnotify.app/api/uberdiablo/')

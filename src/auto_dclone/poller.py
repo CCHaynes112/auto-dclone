@@ -1,7 +1,5 @@
 import requests
 
-URL = 'https://diablo2.io/dclone_api.php'
-
 class Poller:
     def __init__(self, region, ladder, hardcore):
         self.region = region
@@ -9,9 +7,5 @@ class Poller:
         self.hardcore = hardcore
 
     def poll_api(self):
-        response = requests.get(URL, params={
-            "region": self.region,
-            "ladder": self.ladder,
-            "hc": self.hardcore,
-        })
+        response = requests.get('https://dcnotify.app/api/uberdiablo/')
         return response.json()

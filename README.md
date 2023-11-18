@@ -18,11 +18,6 @@ diablo2.io is a great resource for all diablo 2 players. Highly recommend checki
 * create a `.env` file in the src directory
 * add the following to the `.env` file
 ```
-TWILIO_ACCOUNT_SID=<TWILIO_ACCOUNT_SID>
-TWILIO_AUTH_TOKEN=<TWILIO_AUTH_TOKEN>
-SEND_SMS=true
-TWILIO_PHONE_NUMBER=<TWILIO_PHONE_NUMBER>
-PHONE_NUMBER=<YOUR_PHONE_NUMBER>
 D2_LAUNCHER_PATH=C:/Program Files (x86)/Battle.net/Battle.net Launcher.exe
 ```
 * customize the `.env` file to your liking
